@@ -44,11 +44,12 @@ namespace KopiLua
 				LuaPushInteger (L, 1);
 				return 1;
 			}
-			CharPtr strCmdLine = "/C regenresx " + LuaLOptString(L, 1, null);
+			CharPtr strCmdLine = "/C " + LuaLOptString(L, 1, null);
 			System.Diagnostics.Process proc = new System.Diagnostics.Process();
 			proc.EnableRaisingEvents=false;
 			proc.StartInfo.FileName = "CMD.exe";
 			proc.StartInfo.Arguments = strCmdLine.ToString();
+			proc.StartInfo.CreateNoWindow = true;
 			proc.Start();
 			proc.WaitForExit();
 			LuaPushInteger(L, proc.ExitCode);
