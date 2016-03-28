@@ -359,7 +359,7 @@ namespace KopiLua
 		  CallInfo ci;
 		  MarkValue(g, Gt(l));
 		  lim = l.top;
-		  for (ci = l.base_ci[0]; ci <= l.ci; CallInfo.Inc(ref ci)) {
+		  for (ci = l.base_ci[0]; ci < l.ci; CallInfo.Inc(ref ci)) {
 			LuaAssert(ci.top <= l.stack_last);
 			if (lim < ci.top) lim = ci.top;
 		  }
