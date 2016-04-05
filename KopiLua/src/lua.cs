@@ -59,6 +59,9 @@ namespace KopiLua
 		/* mark for precompiled code (`<esc>Lua') */
 		public const string LUA_SIGNATURE = "\x01bLua";
 
+		/* Byte order mark of UTF-8 Encoding */
+		public const string UTF8_SIGNATURE = "\xEF\xBB\xBF";
+
 		/* option for multiple returns in `lua_pcall' and `lua_call' */
 		public const int LUA_MULTRET	= (-1);
 

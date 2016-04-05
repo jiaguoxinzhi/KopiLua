@@ -704,6 +704,20 @@ namespace KopiLua
 		   while ((c = getc(lf.f)) != EOF && c != LUA_SIGNATURE[0]) ;
 			lf.extraline = 0;
 		  }
+		  if (c == UTF8_SIGNATURE[0] && (filename != null)) {
+			int c1 = getc(lf.f);
+			if (c1 != UTF8_SIGNATURE[1]) ungetc(c1, lf.f);
+			else {
+			  int c2 = getc(lf.f);
+			  if (c2 != UTF8_SIGNATURE[2]) {
+				ungetc(c2, lf.f);
+				ungetc(c1, lf.f);
+			  }
+			  else
+				c = getc(lf.f);
+			}
+		  }
+
 		  ungetc(c, lf.f);
 		  status = LuaLoad(L, GetF, lf, LuaToString(L, -1));
 		  readstatus = ferror(lf.f);
