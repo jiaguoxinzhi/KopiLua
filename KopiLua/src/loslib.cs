@@ -150,7 +150,7 @@ namespace KopiLua
 
 
 		private static int OSDate (LuaState L) {
-		  CharPtr s = LuaLOptString(L, 1, "%c");
+		  CharPtr s = new CharPtr(LuaLOptString(L, 1, "%c"));
 		  DateTime stm;
 
             // Parses the second argument if there's one. If not, uses Now as time.
