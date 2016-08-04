@@ -205,8 +205,16 @@ namespace KopiLua
 
 
 		private static int MathRandomSeed (LuaState L) {
-		  //srand(luaL_checkint(L, 1));
-			rng = new Random(LuaLCheckInt(L, 1));
+            // math.randomseed() can take a double number but Random expects an integer seed.
+            // we use modulus to bring back the double to the allowed integer interval.
+            LuaNumberType seed = Math.Abs(LuaLCheckNumber(L, 1));
+            LuaNumberType max = (LuaNumberType)int.MaxValue;
+            while (seed > max)
+            {
+                seed = fmod(seed, max);
+            }
+
+			rng = new Random((int)seed);
 		  return 0;
 		}
 

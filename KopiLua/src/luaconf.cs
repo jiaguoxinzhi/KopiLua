@@ -1137,8 +1137,7 @@ namespace KopiLua
 
 		public static lua_Number fmod(lua_Number a, lua_Number b)
 		{
-			float quotient = (int)Math.Floor(a / b);
-			return a - quotient * b;
+			return a - Math.Floor(a / b) * b;
 		}
 
 		public static lua_Number modf(lua_Number a, out lua_Number b)

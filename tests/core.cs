@@ -3,6 +3,7 @@ using System;
 using NUnit.Framework;
 using System.IO;
 using KopiLua;
+using System.Text;
 
 namespace Tests.iOS
 {
@@ -184,6 +185,16 @@ namespace Tests.iOS
 
             // Test for os.difftime giving result in seconds.
             AssertString(st1 + "\n" + st2 + "\nassert(os.difftime(t2, t1) == 30)");
+        }
+
+        [Test]
+        public void MathLib()
+        {
+            // Test for math.random() giving different values after init with math.randomseed(os.time()).
+            AssertString("local s1 = os.time({year=2015, month=5, day=28, hour=15, min=50, sec=48})\nlocal s2 = s1 + 1\nmath.randomseed(s1)\nmath.random()\nmath.random()\nlocal n1 = math.random()\nmath.randomseed(s2)\nmath.random()\nmath.random()\nlocal n2 = math.random()\nprint(tostring(n1) .. ',' .. tostring(n2))\nassert(n1 ~= n2)");
+
+            // Test for math.random() giving same values for math.randomseed(42).
+            AssertString("math.randomseed(42)\nmath.random()\nmath.random()\nlocal n1 = math.random()\nmath.randomseed(42)\nmath.random()\nmath.random()\nlocal n2 = math.random()\nprint(tostring(n1) .. ',' .. tostring(n2))\nassert(n1 == n2)");
         }
 	}
 }
