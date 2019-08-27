@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;LUA_CORE;CATCH_EXCEPTIONS</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\KopiLua\src\CharPtr.cs" Link="src\CharPtr.cs" />
+    <Compile Include="..\KopiLua\src\lapi.cs" Link="src\lapi.cs" />
+    <Compile Include="..\KopiLua\src\lauxlib.cs" Link="src\lauxlib.cs" />
+    <Compile Include="..\KopiLua\src\lbaselib.cs" Link="src\lbaselib.cs" />
+    <Compile Include="..\KopiLua\src\lcode.cs" Link="src\lcode.cs" />
+    <Compile Include="..\KopiLua\src\ldblib.cs" Link="src\ldblib.cs" />
+    <Compile Include="..\KopiLua\src\ldebug.cs" Link="src\ldebug.cs" />
+    <Compile Include="..\KopiLua\src\ldo.cs" Link="src\ldo.cs" />
+    <Compile Include="..\KopiLua\src\ldump.cs" Link="src\ldump.cs" />
+    <Compile Include="..\KopiLua\src\lfunc.cs" Link="src\lfunc.cs" />
+    <Compile Include="..\KopiLua\src\lgc.cs" Link="src\lgc.cs" />
+    <Compile Include="..\KopiLua\src\linit.cs" Link="src\linit.cs" />
+    <Compile Include="..\KopiLua\src\liolib.cs" Link="src\liolib.cs" />
+    <Compile Include="..\KopiLua\src\llex.cs" Link="src\llex.cs" />
+    <Compile Include="..\KopiLua\src\llimits.cs" Link="src\llimits.cs" />
+    <Compile Include="..\KopiLua\src\lmathlib.cs" Link="src\lmathlib.cs" />
+    <Compile Include="..\KopiLua\src\lmem.cs" Link="src\lmem.cs" />
+    <Compile Include="..\KopiLua\src\lnet.cs" Link="src\lnet.cs" />
+    <Compile Include="..\KopiLua\src\loadlib.cs" Link="src\loadlib.cs" />
+    <Compile Include="..\KopiLua\src\lobject.cs" Link="src\lobject.cs" />
+    <Compile Include="..\KopiLua\src\lopcodes.cs" Link="src\lopcodes.cs" />
+    <Compile Include="..\KopiLua\src\loslib.cs" Link="src\loslib.cs" />
+    <Compile Include="..\KopiLua\src\lparser.cs" Link="src\lparser.cs" />
+    <Compile Include="..\KopiLua\src\lstate.cs" Link="src\lstate.cs" />
+    <Compile Include="..\KopiLua\src\lstring.cs" Link="src\lstring.cs" />
+    <Compile Include="..\KopiLua\src\lstrlib.cs" Link="src\lstrlib.cs" />
+    <Compile Include="..\KopiLua\src\ltable.cs" Link="src\ltable.cs" />
+    <Compile Include="..\KopiLua\src\ltablib.cs" Link="src\ltablib.cs" />
+    <Compile Include="..\KopiLua\src\ltm.cs" Link="src\ltm.cs" />
+    <Compile Include="..\KopiLua\src\lua.cs" Link="src\lua.cs" />
+    <Compile Include="..\KopiLua\src\luaconf.cs" Link="src\luaconf.cs" />
+    <Compile Include="..\KopiLua\src\LuaDebug.cs" Link="src\LuaDebug.cs" />
+    <Compile Include="..\KopiLua\src\lualib.cs" Link="src\lualib.cs" />
+    <Compile Include="..\KopiLua\src\LuaState.cs" Link="src\LuaState.cs" />
+    <Compile Include="..\KopiLua\src\LuaTag.cs" Link="src\LuaTag.cs" />
+    <Compile Include="..\KopiLua\src\lundump.cs" Link="src\lundump.cs" />
+    <Compile Include="..\KopiLua\src\lvm.cs" Link="src\lvm.cs" />
+    <Compile Include="..\KopiLua\src\lzio.cs" Link="src\lzio.cs" />
+    <Compile Include="..\KopiLua\src\Platform\CLSCompliantAttribute.cs" Link="src\Platform\CLSCompliantAttribute.cs" />
+    <Compile Include="..\KopiLua\src\print.cs" Link="src\print.cs" />
+    <Compile Include="..\KopiLua\src\printf\Tools.cs" Link="src\printf\Tools.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\printf\" />
+    <Folder Include="src\Platform\" />
+  </ItemGroup>
+
+</Project>

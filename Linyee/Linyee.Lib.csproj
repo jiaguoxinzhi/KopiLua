@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Linyee.Lib</AssemblyName>
+    <RootNamespace>Linyee.Lib</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;LINYEE_CORE;CATCH_EXCEPTIONS</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="src\ios\**" />
+    <Compile Remove="src\Platform\**" />
+    <Compile Remove="src\printf\**" />
+    <EmbeddedResource Remove="src\ios\**" />
+    <EmbeddedResource Remove="src\Platform\**" />
+    <EmbeddedResource Remove="src\printf\**" />
+    <None Remove="src\ios\**" />
+    <None Remove="src\Platform\**" />
+    <None Remove="src\printf\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Linyee.AT\Linyee.AT.csproj" />
+    <ProjectReference Include="..\Linyee.Localization\Linyee.Localization.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resource\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resource\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resource\Resource.zh-cn.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
